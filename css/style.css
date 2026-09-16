@@ -1702,6 +1702,18 @@ input, select, textarea {
     gap: 20px;
   }
 
+  .featured-load-more-wrap {
+    margin-top: 24px;
+  }
+
+  .btn-outline-discreet {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.88rem;
+  }
+
   .trade-finance-grid {
     grid-template-columns: 1fr;
     gap: 24px;
