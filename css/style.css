@@ -254,15 +254,17 @@ input, select, textarea {
 
 /* LOGOTIPO OFICIAL COM FIDELIDADE DE CORES */
 .brand-logo-badge {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 6px 16px 8px 16px;
+  padding: 6px 14px;
   border-radius: var(--radius-md);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.5);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .brand-logo:hover .brand-logo-badge {
@@ -270,56 +272,20 @@ input, select, textarea {
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
 }
 
-.brand-logo-vector {
-  display: flex;
-  align-items: center;
-  position: relative;
-  font-family: var(--font-display);
-  line-height: 1;
-  padding-bottom: 6px;
+.brand-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
 }
 
-.logo-txt-gray {
-  font-size: 1.65rem;
-  font-weight: 800;
-  color: var(--logo-gray);
-  letter-spacing: -0.04em;
-}
-
-.logo-txt-green-oo {
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  margin: 0 1px;
-}
-
-.o-ring {
-  width: 22px;
-  height: 22px;
-  border: 5px solid var(--logo-green);
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-.o-bridge {
-  width: 14px;
-  height: 5px;
-  background-color: var(--logo-green);
-  display: inline-block;
-  margin: 0 -4px;
-  z-index: 2;
-}
-
-.logo-sub-motors {
-  position: absolute;
-  bottom: -4px;
-  right: 0;
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  color: var(--logo-green);
-  font-family: var(--font-display);
+.mobile-nav-logo-img {
+  height: 32px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  display: block;
 }
 
 /* Navegação Desktop */
@@ -610,6 +576,45 @@ input, select, textarea {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 28px;
+}
+
+.featured-load-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.btn-outline-discreet {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--color-carbon);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.btn-outline-discreet:hover {
+  background-color: var(--color-fog);
+  border-color: var(--color-carbon);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.btn-outline-discreet svg {
+  transition: transform var(--transition-fast);
+}
+
+.btn-outline-discreet.collapsed-state svg {
+  transform: rotate(180deg);
 }
 
 .car-card {
@@ -1219,6 +1224,27 @@ input, select, textarea {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.footer-brand-logo-wrap {
+  margin-bottom: 18px;
+}
+
+.footer-logo-badge {
+  background-color: rgba(255, 255, 255, 0.96);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  display: block;
+}
+
 .footer-brand-title {
   font-family: var(--font-display);
   font-size: 1.45rem;
@@ -1546,27 +1572,12 @@ input, select, textarea {
   }
 
   .brand-logo-badge {
-    padding: 5px 12px 6px 12px;
+    padding: 4px 10px;
   }
 
-  .logo-txt-gray {
-    font-size: 1.4rem;
-  }
-
-  .o-ring {
-    width: 18px;
-    height: 18px;
-    border-width: 4px;
-  }
-
-  .o-bridge {
-    width: 10px;
-    height: 4px;
-    margin: 0 -3px;
-  }
-
-  .logo-sub-motors {
-    font-size: 0.52rem;
+  .brand-logo-img {
+    height: 30px;
+    max-width: 110px;
   }
 
   .header-phone {

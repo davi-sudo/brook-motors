@@ -9,11 +9,13 @@ let currentCategory = 'all';
 let searchQuery = '';
 let currentSort = 'default';
 let activeModalCar = null;
+let featuredVisibleCount = 2;
+const FEATURED_STEP = 2;
 
 document.addEventListener('DOMContentLoaded', () => {
   initStoreStatus();
   initVideoControls();
-  renderFeaturedVehicles();
+  initFeaturedVehicles();
   renderCatalog();
   initCategoryFilters();
   initSearchAndSort();
@@ -152,13 +154,54 @@ function initVideoControls() {
   }
 }
 
-// 5. Render Destaques Showroom
+// 5. Render & Controle Destaques Showroom (Colapsado com 2 itens iniciais e paginação de 2 em 2)
+function initFeaturedVehicles() {
+  const loadMoreBtn = document.getElementById('featuredLoadMoreBtn');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      const allFeatured = VEHICLES.filter(v => v.is_featured);
+      if (featuredVisibleCount < allFeatured.length) {
+        featuredVisibleCount = Math.min(featuredVisibleCount + FEATURED_STEP, allFeatured.length);
+      } else {
+        // Se já está tudo visível, colapsa de volta para 2 itens
+        featuredVisibleCount = 2;
+        const destaquesSection = document.getElementById('destaques');
+        if (destaquesSection) {
+          destaquesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+      renderFeaturedVehicles();
+    });
+  }
+  renderFeaturedVehicles();
+}
+
 function renderFeaturedVehicles() {
   const container = document.getElementById('featuredVehiclesGrid');
+  const loadMoreBtn = document.getElementById('featuredLoadMoreBtn');
   if (!container) return;
 
-  const featured = VEHICLES.filter(v => v.is_featured).slice(0, 4);
-  container.innerHTML = featured.map(car => createVehicleCardHtml(car)).join('');
+  const allFeatured = VEHICLES.filter(v => v.is_featured);
+  const visibleFeatured = allFeatured.slice(0, featuredVisibleCount);
+  container.innerHTML = visibleFeatured.map(car => createVehicleCardHtml(car)).join('');
+
+  if (loadMoreBtn) {
+    if (allFeatured.length <= 2) {
+      loadMoreBtn.style.display = 'none';
+    } else if (featuredVisibleCount >= allFeatured.length) {
+      loadMoreBtn.innerHTML = `
+        <span>Recolher destaques</span>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+      `;
+      loadMoreBtn.classList.add('collapsed-state');
+    } else {
+      loadMoreBtn.innerHTML = `
+        <span>Clique para ver mais</span>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      `;
+      loadMoreBtn.classList.remove('collapsed-state');
+    }
+  }
 }
 
 // 6. Render Catálogo Geral com Filtro
@@ -468,6 +511,9 @@ function switchModalImage(imgUrl, thumbEl) {
 
 // 10. Trade-in & Financing Calculator
 function initTradeInAndFinancing() {
+  if (!document.getElementById('financingCarPrice') && !document.getElementById('tradeInForm')) {
+    return;
+  }
   const entryRange = document.getElementById('financingEntryRange');
   const entryValDisplay = document.getElementById('financingEntryVal');
   const carPriceInput = document.getElementById('financingCarPrice');
