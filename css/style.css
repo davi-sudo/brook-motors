@@ -1477,8 +1477,8 @@ input, select, textarea {
    ========================================================================== */
 .floating-whatsapp-btn {
   position: fixed;
-  top: 58vh;
-  left: 28px;
+  top: 60vh;
+  right: 28px;
   transform: translateY(-50%);
   z-index: 1000;
   display: inline-flex;
@@ -1784,8 +1784,8 @@ input, select, textarea {
 
   /* Botão Flutuante Circular Touch no Mobile */
   .floating-whatsapp-btn {
-    top: 58vh;
-    left: 18px;
+    top: 60vh;
+    right: 18px;
     padding: 0;
     width: 58px;
     height: 58px;
