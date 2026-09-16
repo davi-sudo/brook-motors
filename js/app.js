@@ -16,7 +16,6 @@ const CATALOG_STEP = 2;
 
 document.addEventListener('DOMContentLoaded', () => {
   initStoreStatus();
-  initVideoControls();
   initFeaturedVehicles();
   initCatalogPagination();
   renderCatalog();
@@ -125,39 +124,7 @@ function initStoreStatus() {
   }
 }
 
-// 4. Hero Video Controls
-function initVideoControls() {
-  const video = document.getElementById('heroVideo');
-  const togglePlayBtn = document.getElementById('togglePlayBtn');
-  const toggleMuteBtn = document.getElementById('toggleMuteBtn');
-
-  if (!video) return;
-
-  if (togglePlayBtn) {
-    togglePlayBtn.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        togglePlayBtn.innerHTML = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>';
-      } else {
-        video.pause();
-        togglePlayBtn.innerHTML = '<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
-      }
-    });
-  }
-
-  if (toggleMuteBtn) {
-    toggleMuteBtn.addEventListener('click', () => {
-      video.muted = !video.muted;
-      if (video.muted) {
-        toggleMuteBtn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6m0-6l6 6"/></svg>';
-      } else {
-        toggleMuteBtn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>';
-      }
-    });
-  }
-}
-
-// 5. Render & Controle Destaques Showroom (Colapsado com 2 itens iniciais e paginação de 2 em 2)
+// 4. Render & Controle Destaques Showroom (Colapsado com 2 itens iniciais e paginação de 2 em 2)
 function initFeaturedVehicles() {
   const loadMoreBtn = document.getElementById('featuredLoadMoreBtn');
   if (loadMoreBtn) {

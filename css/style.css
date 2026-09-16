@@ -494,29 +494,6 @@ input, select, textarea {
   100% { transform: translateY(10px); opacity: 0; }
 }
 
-.hero-controls {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  z-index: 4;
-  display: flex;
-  gap: 10px;
-}
-
-.video-control-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* ==========================================================================
    STATUS PILL (INTEGRADO NO SHOWROOM)
    ========================================================================== */
@@ -1677,11 +1654,6 @@ input, select, textarea {
 
   .hero-scroll-hint {
     display: none;
-  }
-
-  .hero-controls {
-    bottom: 16px;
-    right: 16px;
   }
 
   /* Seções no Mobile */
