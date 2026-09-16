@@ -11,11 +11,14 @@ let currentSort = 'default';
 let activeModalCar = null;
 let featuredVisibleCount = 2;
 const FEATURED_STEP = 2;
+let catalogVisibleCount = 2;
+const CATALOG_STEP = 2;
 
 document.addEventListener('DOMContentLoaded', () => {
   initStoreStatus();
   initVideoControls();
   initFeaturedVehicles();
+  initCatalogPagination();
   renderCatalog();
   initCategoryFilters();
   initSearchAndSort();
@@ -204,12 +207,8 @@ function renderFeaturedVehicles() {
   }
 }
 
-// 6. Render Catálogo Geral com Filtro
-function renderCatalog() {
-  const container = document.getElementById('catalogVehiclesGrid');
-  const counterEl = document.getElementById('catalogCount');
-  if (!container) return;
-
+// 6. Filtragem e Paginação do Catálogo Geral
+function getFilteredVehicles() {
   let filtered = [...VEHICLES];
 
   // Category Filter
@@ -239,12 +238,39 @@ function renderCatalog() {
     filtered.sort((a, b) => parseInt(a.km) - parseInt(b.km));
   }
 
-  // Update counter
-  if (counterEl) {
-    counterEl.textContent = `${filtered.length} ${filtered.length === 1 ? 'veículo disponível' : 'veículos disponíveis'}`;
+  return filtered;
+}
+
+function initCatalogPagination() {
+  const loadMoreBtn = document.getElementById('catalogLoadMoreBtn');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      const filtered = getFilteredVehicles();
+      if (catalogVisibleCount < filtered.length) {
+        catalogVisibleCount = Math.min(catalogVisibleCount + CATALOG_STEP, filtered.length);
+      } else {
+        catalogVisibleCount = 2;
+        const estoqueSection = document.getElementById('estoque');
+        if (estoqueSection) {
+          estoqueSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+      renderCatalog();
+    });
   }
+}
+
+function renderCatalog() {
+  const container = document.getElementById('catalogVehiclesGrid');
+  const counterEl = document.getElementById('catalogCount');
+  const loadMoreBtn = document.getElementById('catalogLoadMoreBtn');
+  if (!container) return;
+
+  const filtered = getFilteredVehicles();
 
   if (filtered.length === 0) {
+    if (counterEl) counterEl.textContent = '0 veículos disponíveis';
+    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
     container.innerHTML = `
       <div class="empty-state" style="grid-column: 1 / -1;">
         <svg width="48" height="48" fill="none" stroke="#a1a1aa" stroke-width="1.5" viewBox="0 0 24 24" style="margin: 0 auto 16px;">
@@ -259,7 +285,32 @@ function renderCatalog() {
     return;
   }
 
-  container.innerHTML = filtered.map(car => createVehicleCardHtml(car)).join('');
+  const visibleList = filtered.slice(0, catalogVisibleCount);
+  container.innerHTML = visibleList.map(car => createVehicleCardHtml(car)).join('');
+
+  if (counterEl) {
+    counterEl.textContent = `Exibindo ${visibleList.length} de ${filtered.length} ${filtered.length === 1 ? 'veículo disponível' : 'veículos disponíveis'}`;
+  }
+
+  if (loadMoreBtn) {
+    if (filtered.length <= 2) {
+      loadMoreBtn.style.display = 'none';
+    } else if (catalogVisibleCount >= filtered.length) {
+      loadMoreBtn.style.display = 'inline-flex';
+      loadMoreBtn.innerHTML = `
+        <span>Recolher estoque</span>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+      `;
+      loadMoreBtn.classList.add('collapsed-state');
+    } else {
+      loadMoreBtn.style.display = 'inline-flex';
+      loadMoreBtn.innerHTML = `
+        <span>Clique para ver mais</span>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      `;
+      loadMoreBtn.classList.remove('collapsed-state');
+    }
+  }
 }
 
 // Helper: Card HTML Generator
@@ -347,6 +398,7 @@ function initCategoryFilters() {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentCategory = btn.dataset.category;
+      catalogVisibleCount = 2;
       renderCatalog();
     });
   });
@@ -360,6 +412,7 @@ function initSearchAndSort() {
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
+      catalogVisibleCount = 2;
       renderCatalog();
     });
   }
@@ -367,6 +420,7 @@ function initSearchAndSort() {
   if (sortSelect) {
     sortSelect.addEventListener('change', (e) => {
       currentSort = e.target.value;
+      catalogVisibleCount = 2;
       renderCatalog();
     });
   }
@@ -414,6 +468,7 @@ function resetCatalogFilters() {
   currentCategory = 'all';
   searchQuery = '';
   currentSort = 'default';
+  catalogVisibleCount = 2;
   
   const searchInput = document.getElementById('catalogSearchInput');
   if (searchInput) searchInput.value = '';
