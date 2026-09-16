@@ -1478,7 +1478,7 @@ input, select, textarea {
 .floating-whatsapp-btn {
   position: fixed;
   top: 50%;
-  left: 28px;
+  right: 28px;
   z-index: 1500;
   display: inline-flex;
   align-items: center;
@@ -1494,7 +1494,7 @@ input, select, textarea {
 
 .floating-whatsapp-btn:hover {
   background-color: var(--color-accent-whatsapp-dark);
-  transform: translateY(-50%) translateX(4px) scale(1.03);
+  transform: translateY(-50%) translateX(-4px) scale(1.03);
   box-shadow: 0 14px 36px rgba(37, 211, 102, 0.55);
   color: #ffffff;
 }
@@ -1785,7 +1785,7 @@ input, select, textarea {
   /* Botão Flutuante Circular Touch no Mobile */
   .floating-whatsapp-btn {
     top: 50%;
-    left: 18px;
+    right: 18px;
     padding: 0;
     width: 58px;
     height: 58px;
