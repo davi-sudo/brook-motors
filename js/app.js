@@ -34,19 +34,31 @@ function initHeaderScroll() {
   });
 }
 
-// 2. Mobile Menu Toggle
+// 2. Mobile Menu Toggle & Drawer
 function initMobileMenu() {
   const toggleBtn = document.querySelector('.mobile-menu-toggle');
   const nav = document.querySelector('.main-nav');
+  const closeBtn = document.getElementById('mobileNavClose');
+
   if (toggleBtn && nav) {
     toggleBtn.addEventListener('click', () => {
-      nav.classList.toggle('mobile-active');
+      nav.classList.add('mobile-active');
+      document.body.style.overflow = 'hidden';
     });
-    
-    // Close on click link
+  }
+
+  if (closeBtn && nav) {
+    closeBtn.addEventListener('click', () => {
+      nav.classList.remove('mobile-active');
+      document.body.style.overflow = '';
+    });
+  }
+
+  if (nav) {
     nav.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('mobile-active');
+        document.body.style.overflow = '';
       });
     });
   }

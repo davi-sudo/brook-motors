@@ -2,6 +2,7 @@
    BROOK MOTORS - DESIGN SYSTEM (INSPIRADO EM BMW.COM)
    Paleta: Pure White, Fog, Concrete, Carbon
    Tipografia: Display 300 weight, Sans-Serif Minimalista
+   100% OTIMIZADO PARA MOBILE & DESKTOP
    ========================================================================== */
 
 :root {
@@ -36,7 +37,7 @@
 
   /* Espaçamentos e Dimensões */
   --max-width: 1320px;
-  --header-height: 80px;
+  --header-height: 76px;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -47,7 +48,7 @@
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
   --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.08);
-  --shadow-modal: 0 24px 60px rgba(0, 0, 0, 0.18);
+  --shadow-modal: 0 24px 60px rgba(0, 0, 0, 0.22);
 }
 
 /* Reset Global */
@@ -55,6 +56,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -70,6 +72,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 
 img, video {
@@ -92,7 +95,7 @@ button {
   transition: all var(--transition-fast);
 }
 
-/* Container */
+/* Container Responsivo */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -100,30 +103,36 @@ button {
   padding: 0 24px;
 }
 
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
 /* Tipografia Estilo BMW (Elegância Contida) */
 .eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--color-carbon-subtle);
   display: block;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .heading-display {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(2.2rem, 5.5vw, 4.25rem);
   font-weight: 300;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  line-height: 1.15;
+  line-height: 1.12;
   color: var(--color-carbon);
 }
 
 .heading-section {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.65rem, 3.5vw, 2.4rem);
   font-weight: 300;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -132,10 +141,11 @@ button {
 }
 
 .section-desc {
-  font-size: 1.05rem;
+  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
   color: var(--color-carbon-muted);
   max-width: 640px;
-  margin-top: 0.75rem;
+  margin-top: 0.6rem;
+  line-height: 1.55;
 }
 
 /* Botões Estilo BMW */
@@ -144,13 +154,14 @@ button {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 14px 28px;
   border-radius: var(--radius-sm);
   transition: all var(--transition-smooth);
+  min-height: 48px;
 }
 
 .btn-primary {
@@ -186,6 +197,21 @@ button {
   background-color: var(--color-fog);
   color: #000000;
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.btn-outline-white {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-pure-white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--color-pure-white);
+  color: var(--color-carbon);
+  border-color: var(--color-pure-white);
+  transform: translateY(-2px);
 }
 
 .btn-whatsapp {
@@ -199,7 +225,7 @@ button {
   background-color: var(--color-accent-whatsapp-dark);
   border-color: var(--color-accent-whatsapp-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
 }
 
 /* ==========================================================================
@@ -212,7 +238,7 @@ button {
   width: 100%;
   height: var(--header-height);
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -220,9 +246,9 @@ button {
 }
 
 .site-header.scrolled {
-  height: 70px;
+  height: 68px;
   background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .header-inner {
@@ -240,7 +266,7 @@ button {
 
 .brand-logo-text {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -251,9 +277,9 @@ button {
 }
 
 .brand-logo-sub {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 400;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   color: var(--color-carbon-subtle);
   margin-top: 3px;
 }
@@ -261,17 +287,21 @@ button {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
+}
+
+.mobile-nav-header {
+  display: none;
 }
 
 .nav-link {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-carbon-muted);
   position: relative;
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
 .nav-link::after {
@@ -296,14 +326,14 @@ button {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .header-phone {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--color-carbon);
 }
@@ -313,15 +343,19 @@ button {
   background: none;
   color: var(--color-carbon);
   padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ==========================================================================
-   HERO SECTION COM VÍDEO & BUSCA RÁPIDA
+   HERO SECTION (PURO LUXO AUTOMOTIVO - SEM POLUIÇÃO DE BOXES)
    ========================================================================== */
 .hero-section {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
+  min-height: 100svh;
+  height: 100svh;
   display: flex;
   align-items: center;
   color: var(--color-pure-white);
@@ -342,7 +376,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.68) contrast(1.08);
+  filter: brightness(0.72) contrast(1.05);
 }
 
 .hero-overlay {
@@ -354,8 +388,8 @@ button {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.45) 0%,
-    rgba(0, 0, 0, 0.25) 50%,
-    rgba(0, 0, 0, 0.8) 100%
+    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0.78) 100%
   );
   z-index: 2;
 }
@@ -364,20 +398,22 @@ button {
   position: relative;
   z-index: 3;
   width: 100%;
-  padding-top: calc(var(--header-height) + 20px);
+  padding-top: calc(var(--header-height) + 30px);
+  padding-bottom: 60px;
 }
 
 .hero-tag {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  background-color: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 16px;
+  background-color: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -385,94 +421,94 @@ button {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
   font-weight: 300;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   line-height: 1.1;
-  max-width: 900px;
+  max-width: 860px;
   margin-bottom: 1.25rem;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
 .hero-description {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
   font-weight: 300;
   line-height: 1.6;
-  max-width: 620px;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2.5rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 2.2rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
-/* Barra de Busca Rápida na Hero */
-.hero-search-card {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(16px);
-  border-radius: var(--radius-sm);
-  padding: 20px 24px;
-  color: var(--color-carbon);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  max-width: 1000px;
-}
-
-.hero-search-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) auto;
-  gap: 16px;
-  align-items: flex-end;
-}
-
-.search-field {
+.hero-actions-wrap {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.search-field label {
-  font-size: 0.72rem;
-  font-weight: 600;
+.hero-btn {
+  padding: 16px 32px;
+}
+
+/* Indicador de rolagem sutil */
+.hero-scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 48px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-carbon-subtle);
+  letter-spacing: 0.12em;
+  transition: color var(--transition-fast);
 }
 
-.search-field select,
-.search-field input {
-  height: 48px;
-  padding: 0 14px;
-  background-color: var(--color-fog);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  font-size: 0.88rem;
-  font-family: inherit;
-  color: var(--color-carbon);
-  outline: none;
-  transition: border-color var(--transition-fast);
+.hero-scroll-hint:hover {
+  color: #ffffff;
 }
 
-.search-field select:focus,
-.search-field input:focus {
-  border-color: var(--color-carbon);
+.scroll-mouse {
+  width: 18px;
+  height: 28px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.scroll-wheel {
+  width: 3px;
+  height: 6px;
   background-color: #ffffff;
+  border-radius: 2px;
+  animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0; }
 }
 
 .hero-controls {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: 24px;
+  right: 24px;
   z-index: 4;
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 .video-control-btn {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -480,7 +516,7 @@ button {
 }
 
 .video-control-btn:hover {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ==========================================================================
@@ -489,7 +525,7 @@ button {
 .status-bar {
   background-color: var(--color-fog);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 12px 0;
+  padding: 14px 0;
   font-size: 0.82rem;
 }
 
@@ -515,6 +551,7 @@ button {
   background-color: var(--color-accent-whatsapp);
   box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
   animation: pulse 2s infinite;
+  flex-shrink: 0;
 }
 
 .pulse-dot.closed {
@@ -524,15 +561,9 @@ button {
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 .status-address {
@@ -546,23 +577,23 @@ button {
    SHOWROOM DE DESTAQUES (BMW STYLE EDITORIAL)
    ========================================================================== */
 .featured-section {
-  padding: 96px 0;
+  padding: 80px 0;
   background-color: var(--color-pure-white);
 }
 
 .section-header {
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 20px;
 }
 
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
 }
 
 /* Card de Veículo Estilo Galeria */
@@ -603,8 +634,8 @@ button {
 
 .car-badge-wrap {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   display: flex;
   gap: 6px;
   z-index: 2;
@@ -613,7 +644,7 @@ button {
 .car-badge {
   padding: 4px 10px;
   border-radius: var(--radius-sm);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -628,20 +659,20 @@ button {
 }
 
 .car-badge-cautelar {
-  background-color: rgba(16, 185, 129, 0.9);
+  background-color: rgba(16, 185, 129, 0.92);
   color: #ffffff;
 }
 
 .car-photos-count {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
+  bottom: 10px;
+  right: 10px;
   background-color: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(6px);
   color: #ffffff;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  padding: 4px 8px;
+  padding: 3px 8px;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -649,7 +680,7 @@ button {
 }
 
 .car-card-body {
-  padding: 24px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -677,18 +708,18 @@ button {
   letter-spacing: 0.02em;
   color: var(--color-carbon);
   line-height: 1.35;
-  margin-bottom: 16px;
-  min-height: 48px;
+  margin-bottom: 14px;
+  min-height: 46px;
 }
 
 .car-specs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px 14px;
-  padding: 14px 0;
+  padding: 12px 0;
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .car-spec-item {
@@ -720,8 +751,8 @@ button {
 }
 
 .car-price-label {
-  font-size: 0.68rem;
-  font-weight: 500;
+  font-size: 0.65rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-carbon-subtle);
@@ -742,12 +773,16 @@ button {
 }
 
 .btn-card-details {
-  padding: 10px 14px;
+  padding: 10px 16px;
   font-size: 0.78rem;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--color-carbon);
-  font-weight: 500;
+  font-weight: 600;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-card-details:hover {
@@ -756,14 +791,15 @@ button {
 }
 
 .btn-card-whatsapp {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--radius-sm);
   background-color: var(--color-accent-whatsapp);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .btn-card-whatsapp:hover {
@@ -775,7 +811,7 @@ button {
    ESTOQUE COMPLETO COM FILTROS AVANÇADOS
    ========================================================================== */
 .catalog-section {
-  padding: 96px 0;
+  padding: 80px 0;
   background-color: var(--color-fog);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
@@ -785,8 +821,8 @@ button {
   background-color: var(--color-pure-white);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  padding: 16px 24px;
-  margin-bottom: 32px;
+  padding: 16px 20px;
+  margin-bottom: 28px;
   box-shadow: var(--shadow-subtle);
 }
 
@@ -799,6 +835,7 @@ button {
   border-bottom: 1px solid var(--border-subtle);
   margin-bottom: 16px;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .filter-categories::-webkit-scrollbar {
@@ -814,6 +851,7 @@ button {
   white-space: nowrap;
   color: var(--color-carbon-muted);
   border: 1px solid transparent;
+  min-height: 40px;
 }
 
 .filter-cat-btn:hover {
@@ -832,14 +870,13 @@ button {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
 }
 
 .search-input-wrap {
   position: relative;
   flex: 1;
-  min-width: 260px;
-  max-width: 480px;
+  min-width: 240px;
 }
 
 .search-input-wrap input {
@@ -877,11 +914,12 @@ button {
 }
 
 .sort-select-wrap label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 600;
   color: var(--color-carbon-subtle);
+  white-space: nowrap;
 }
 
 .sort-select-wrap select {
@@ -904,7 +942,7 @@ button {
 
 .empty-state {
   text-align: center;
-  padding: 64px 20px;
+  padding: 60px 20px;
   background-color: var(--color-pure-white);
   border: 1px dashed var(--border-subtle);
   border-radius: var(--radius-sm);
@@ -914,43 +952,43 @@ button {
    SIMULADOR DE FINANCIAMENTO & AVALIAÇÃO DE USADO
    ========================================================================== */
 .trade-finance-section {
-  padding: 96px 0;
+  padding: 80px 0;
   background-color: var(--color-pure-white);
 }
 
 .trade-finance-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: 36px;
 }
 
 .interactive-box {
   background-color: var(--color-fog);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  padding: 36px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
 }
 
 .interactive-box-header {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .interactive-box-title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--color-carbon);
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .interactive-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   flex-grow: 1;
 }
 
@@ -971,7 +1009,8 @@ button {
 .form-group input,
 .form-group select,
 .form-group textarea {
-  padding: 12px 14px;
+  height: 48px;
+  padding: 0 14px;
   background-color: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
@@ -991,17 +1030,19 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
+  padding: 6px 0;
 }
 
-.range-wrap input[type=range] {
+.range-wrap input[type="range"] {
   flex: 1;
   accent-color: var(--color-carbon);
+  height: 8px;
 }
 
 .range-val {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   min-width: 100px;
   text-align: right;
 }
@@ -1011,10 +1052,9 @@ button {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 16px;
-  margin-top: 6px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 8px;
   text-align: center;
 }
 
@@ -1024,9 +1064,10 @@ button {
 }
 
 .calc-plan-terms {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--color-carbon-subtle);
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .calc-plan-val {
@@ -1034,13 +1075,14 @@ button {
   font-weight: 700;
   font-size: 1rem;
   color: var(--color-carbon);
+  margin-top: 2px;
 }
 
 /* ==========================================================================
    DIFERENCIAIS BROOK MOTORS
    ========================================================================== */
 .differentials-section {
-  padding: 96px 0;
+  padding: 80px 0;
   background-color: var(--color-pure-white);
   border-top: 1px solid var(--border-subtle);
 }
@@ -1048,11 +1090,11 @@ button {
 .diff-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
 .diff-card {
-  padding: 32px 24px;
+  padding: 28px 22px;
   background-color: var(--color-fog);
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
@@ -1075,7 +1117,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .diff-title {
@@ -1083,7 +1125,7 @@ button {
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .diff-desc {
@@ -1096,20 +1138,20 @@ button {
    LOCALIZAÇÃO E HORÁRIOS
    ========================================================================== */
 .location-section {
-  padding: 96px 0;
+  padding: 80px 0;
   background-color: var(--color-fog);
 }
 
 .location-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 36px;
   align-items: stretch;
 }
 
 .location-card {
   background-color: var(--color-pure-white);
-  padding: 40px;
+  padding: 36px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
   display: flex;
@@ -1119,10 +1161,10 @@ button {
 
 .location-hours-list {
   list-style: none;
-  margin: 24px 0;
+  margin: 20px 0;
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 16px 0;
+  padding: 14px 0;
 }
 
 .location-hours-item {
@@ -1143,7 +1185,6 @@ button {
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   min-height: 400px;
-  position: relative;
   background-color: var(--color-fog-dark);
 }
 
@@ -1160,21 +1201,21 @@ button {
 .site-footer {
   background-color: var(--color-carbon);
   color: #a1a1aa;
-  padding: 80px 0 32px 0;
+  padding: 72px 0 32px 0;
   font-size: 0.88rem;
 }
 
 .footer-top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 48px;
-  padding-bottom: 60px;
+  gap: 40px;
+  padding-bottom: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-brand-title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #ffffff;
@@ -1184,16 +1225,16 @@ button {
 .footer-brand-text {
   line-height: 1.6;
   max-width: 320px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .footer-col-title {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .footer-nav-list {
@@ -1208,7 +1249,7 @@ button {
 }
 
 .footer-bottom {
-  padding-top: 32px;
+  padding-top: 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1219,7 +1260,7 @@ button {
 }
 
 /* ==========================================================================
-   MODAL DE DETALHES DO VEÍCULO COM GALERIA
+   MODAL DE DETALHES DO VEÍCULO (COM SUPORTE MOBILE FULLSCREEN)
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
@@ -1227,7 +1268,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 2000;
@@ -1264,19 +1305,20 @@ button {
 
 .modal-close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 36px;
-  height: 36px;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--border-subtle);
   color: var(--color-carbon);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 20;
   transition: all var(--transition-fast);
 }
 
@@ -1303,15 +1345,16 @@ button {
 .modal-gallery-thumbs {
   display: flex;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 12px 20px;
   background-color: var(--color-fog);
   overflow-x: auto;
   scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal-thumb {
   width: 72px;
-  height: 50px;
+  height: 48px;
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 2px solid transparent;
@@ -1334,7 +1377,7 @@ button {
 }
 
 .modal-body-content {
-  padding: 32px;
+  padding: 28px;
 }
 
 .modal-header-meta {
@@ -1342,15 +1385,15 @@ button {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .modal-title {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -1359,7 +1402,7 @@ button {
 
 .modal-price {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--color-carbon);
 }
@@ -1367,7 +1410,7 @@ button {
 .modal-specs-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .modal-specs-table tr {
@@ -1376,36 +1419,32 @@ button {
 
 .modal-specs-table th {
   text-align: left;
-  padding: 12px 0;
-  font-size: 0.8rem;
+  padding: 10px 0;
+  font-size: 0.78rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-carbon-subtle);
-  width: 40%;
+  width: 42%;
 }
 
 .modal-specs-table td {
-  padding: 12px 0;
-  font-size: 0.92rem;
+  padding: 10px 0;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-carbon);
 }
 
 .modal-cta-group {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (MOBILE & TABLET)
+   OTIMIZAÇÃO RESPONSIVA AVANÇADA (MOBILE & TABLET)
    ========================================================================== */
 @media (max-width: 1024px) {
-  .hero-search-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
   .diff-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1421,64 +1460,311 @@ button {
 
 @media (max-width: 768px) {
   :root {
-    --header-height: 70px;
+    --header-height: 64px;
   }
 
-  .main-nav {
+  /* Header e Menu Mobile Full-Screen Drawer */
+  .header-phone {
     display: none;
   }
 
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-pure-white);
+    z-index: 2000;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 0;
+    overflow-y: auto;
   }
 
   .main-nav.mobile-active {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: var(--header-height);
-    left: 0;
+  }
+
+  .mobile-nav-header {
+    display: flex;
     width: 100%;
-    background-color: #ffffff;
-    padding: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
     border-bottom: 1px solid var(--border-subtle);
-    box-shadow: var(--shadow-subtle);
   }
 
-  .hero-search-grid {
-    grid-template-columns: 1fr;
+  .mobile-nav-close {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-carbon);
   }
 
+  .nav-link {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  /* Hero no Mobile */
+  .hero-section {
+    min-height: 100svh;
+    height: 100svh;
+  }
+
+  .hero-content {
+    padding-top: calc(var(--header-height) + 16px);
+    padding-bottom: 40px;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+    line-height: 1.12;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-actions-wrap {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .hero-scroll-hint {
+    display: none;
+  }
+
+  .hero-controls {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  /* Status Bar */
+  .status-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* Seções */
+  .featured-section,
+  .catalog-section,
+  .trade-finance-section,
+  .differentials-section,
+  .location-section {
+    padding: 56px 0;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  /* Grids Mobile */
   .featured-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .trade-finance-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .diff-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .footer-top {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Filtros no Mobile */
+  .catalog-filter-bar {
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+
+  .filter-subcontrols {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sort-select-wrap {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sort-select-wrap select {
+    flex: 1;
+  }
+
+  /* Modal no Mobile (Estilo Bottom Sheet / Full) */
+  .modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
   }
 
   .modal-dialog {
-    margin: 10px;
-    max-height: 95vh;
+    max-height: 94vh;
+    border-radius: 16px 16px 0 0;
   }
 
   .modal-body-content {
     padding: 20px;
   }
 
-  .modal-title {
-    font-size: 1.35rem;
+  .modal-cta-group {
+    flex-direction: column;
   }
 
-  .modal-price {
-    font-size: 1.6rem;
+  .modal-cta-group .btn {
+    width: 100%;
+  }
+
+  .location-card {
+    padding: 24px;
+  }
+
+  .location-map-wrap,
+  .location-map-wrap iframe {
+    min-height: 280px;
+  }
+}
+
+
+/* ==========================================================================
+   BOTÃO FLUTUANTE DE WHATSAPP (DESKTOP & MOBILE)
+   ========================================================================== */
+.floating-whatsapp-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1500;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 10px;
+  background-color: var(--color-accent-whatsapp);
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.42), 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: all var(--transition-smooth);
+  text-decoration: none;
+}
+
+.floating-whatsapp-btn:hover {
+  background-color: var(--color-accent-whatsapp-dark);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.52), 0 4px 12px rgba(0, 0, 0, 0.16);
+  color: #ffffff;
+}
+
+.floating-whatsapp-icon {
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  color: var(--color-accent-whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.floating-whatsapp-btn:hover .floating-whatsapp-icon {
+  transform: rotate(12deg);
+}
+
+.floating-whatsapp-label {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.floating-whatsapp-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-whatsapp);
+  opacity: 0.4;
+  z-index: -1;
+  animation: pulse-ring 2.5s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+/* Mobile: Botão Redondo e Touch-friendly */
+@media (max-width: 768px) {
+  .floating-whatsapp-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .floating-whatsapp-label {
+    display: none;
+  }
+
+  .floating-whatsapp-icon {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  .floating-whatsapp-icon svg {
+    width: 32px;
+    height: 32px;
   }
 }
