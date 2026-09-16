@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 120" width="340" height="120" fill="none">
+  <!-- Brook Motors Official Vector Logo -->
+  <defs>
+    <filter id="subtle-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#subtle-shadow)">
+    <!-- 'b' in charcoal slate -->
+    <path d="M 32 18 L 32 82 L 48 82 L 48 73 C 53 79 61 83 71 83 C 87 83 99 70 99 50 C 99 30 87 17 71 17 C 61 17 53 21 48 27 L 48 18 Z M 65 33 C 74 33 82 40 82 50 C 82 60 74 67 65 67 C 56 67 48 60 48 50 C 48 40 56 33 65 33 Z" fill="#333B48"/>
+
+    <!-- 'r' in charcoal slate -->
+    <path d="M 106 35 L 122 35 L 122 44 C 126 38 133 34 142 34 C 146 34 149 35 152 36 L 152 53 C 147 51 143 50 139 50 C 129 50 122 57 122 69 L 122 82 L 106 82 Z" fill="#333B48"/>
+
+    <!-- Connected 'oo' in electric green -->
+    <!-- First 'o' -->
+    <path d="M 191 17 C 173 17 159 31 159 50 C 159 69 173 83 191 83 C 200 83 208 79 214 73 L 214 82 L 230 82 L 230 18 L 214 18 L 214 27 C 208 21 200 17 191 17 Z M 194 33 C 204 33 212 40 212 50 C 212 60 204 67 194 67 C 184 67 176 60 176 50 C 176 40 184 33 194 33 Z" fill="#22C55E"/>
+
+    <!-- Second 'o' linked -->
+    <path d="M 248 17 C 231 17 217 31 217 50 C 217 69 231 83 248 83 C 266 83 280 69 280 50 C 280 31 266 17 248 17 Z M 248 33 C 258 33 265 40 265 50 C 265 60 258 67 248 67 C 238 67 231 40 231 50 C 231 60 238 67 248 67 Z" fill="#22C55E"/>
+
+    <!-- Horizontal connector bar through 'oo' (the signature bridge) -->
+    <rect x="194" y="46" width="56" height="8" rx="2" fill="#22C55E"/>
+
+    <!-- 'k' in charcoal slate -->
+    <path d="M 288 18 L 304 18 L 304 53 L 320 35 L 340 35 L 318 58 L 342 82 L 322 82 L 304 64 L 304 82 L 288 82 Z" fill="#333B48"/>
+
+    <!-- 'MOTORS' in electric green -->
+    <text x="340" y="112" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="25" font-weight="800" letter-spacing="4" fill="#22C55E" text-anchor="end">MOTORS</text>
+  </g>
+</svg>

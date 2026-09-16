@@ -1,46 +1,46 @@
 /* ==========================================================================
    BROOK MOTORS - DESIGN SYSTEM (INSPIRADO EM BMW.COM)
-   Paleta: Pure White, Fog, Concrete, Carbon
-   Tipografia: Display 300 weight, Sans-Serif Minimalista
-   100% OTIMIZADO PARA MOBILE & DESKTOP
+   Paleta: Pure White, Fog, Concrete, Carbon + Verde Elétrico Oficial (#22C55E)
+   100% OTIMIZADO PARA MOBILE & DESKTOP (PREVIEW PERFEITO)
    ========================================================================== */
 
 :root {
-  /* Cores Principais - BMW Refero Design System */
+  /* Cores Principais */
   --color-pure-white: #ffffff;
   --color-fog: #f6f6f8;
-  --color-fog-dark: #ebebee;
+  --color-fog-dark: #ededf2;
   --color-concrete: #d5d5dc;
-  --color-concrete-light: #e8e8ed;
   --color-carbon: #18181b;
   --color-carbon-light: #262626;
   --color-carbon-muted: #52525b;
   --color-carbon-subtle: #71717a;
   
+  /* Cores Oficiais do Logotipo Brook Motors */
+  --logo-gray: #333b48;
+  --logo-green: #22c55e;
+  --logo-green-hover: #16a34a;
+
   /* Acentos de Apoio */
   --color-accent-blue: #0066b1;
-  --color-accent-blue-hover: #004d85;
   --color-accent-whatsapp: #25d366;
   --color-accent-whatsapp-dark: #1ea952;
-  --color-gold: #c5a880;
 
   /* Superfícies e Bordas */
   --bg-main: #ffffff;
   --bg-surface: #ffffff;
   --bg-surface-alt: #f6f6f8;
   --border-subtle: #e5e7eb;
-  --border-strong: #262626;
 
   /* Tipografia */
   --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Espaçamentos e Dimensões */
+  /* Dimensões */
   --max-width: 1320px;
-  --header-height: 76px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --header-height: 84px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
   --radius-full: 9999px;
 
   /* Transições e Sombras */
@@ -48,7 +48,7 @@
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
   --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.08);
-  --shadow-modal: 0 24px 60px rgba(0, 0, 0, 0.22);
+  --shadow-modal: 0 24px 60px rgba(0, 0, 0, 0.25);
 }
 
 /* Reset Global */
@@ -95,6 +95,11 @@ button {
   transition: all var(--transition-fast);
 }
 
+/* Inputs sem auto-zoom no iOS Safari */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
 /* Container Responsivo */
 .container {
   width: 100%;
@@ -109,7 +114,7 @@ button {
   }
 }
 
-/* Tipografia Estilo BMW (Elegância Contida) */
+/* Tipografia */
 .eyebrow {
   font-size: 0.72rem;
   font-weight: 600;
@@ -148,7 +153,7 @@ button {
   line-height: 1.55;
 }
 
-/* Botões Estilo BMW */
+/* Botões */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -179,57 +184,45 @@ button {
 .btn-outline {
   background-color: transparent;
   color: var(--color-carbon);
-  border: 1px solid var(--color-carbon);
+  border: 1px solid var(--border-subtle);
 }
 
 .btn-outline:hover {
   background-color: var(--color-carbon);
   color: var(--color-pure-white);
+  border-color: var(--color-carbon);
 }
 
 .btn-white {
   background-color: var(--color-pure-white);
   color: var(--color-carbon);
   border: 1px solid var(--color-pure-white);
+  font-weight: 700;
 }
 
 .btn-white:hover {
   background-color: var(--color-fog);
   color: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
-
-.btn-outline-white {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--color-pure-white);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
-}
-
-.btn-outline-white:hover {
-  background-color: var(--color-pure-white);
-  color: var(--color-carbon);
-  border-color: var(--color-pure-white);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
 }
 
 .btn-whatsapp {
-  background-color: var(--color-accent-whatsapp);
+  background-color: var(--logo-green);
   color: #ffffff;
-  border: 1px solid var(--color-accent-whatsapp);
-  font-weight: 600;
+  border: 1px solid var(--logo-green);
+  font-weight: 700;
 }
 
 .btn-whatsapp:hover {
-  background-color: var(--color-accent-whatsapp-dark);
-  border-color: var(--color-accent-whatsapp-dark);
+  background-color: var(--logo-green-hover);
+  border-color: var(--logo-green-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
 }
 
 /* ==========================================================================
-   HEADER / NAVBAR MINIMALISTA
+   HEADER TRANSPARENTE SOBRE A HERO (ESTILO LUXURY AUTOMOTIVE)
    ========================================================================== */
 .site-header {
   position: fixed;
@@ -238,17 +231,18 @@ button {
   width: 100%;
   height: var(--header-height);
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: transparent;
+  border-bottom: none;
   transition: all var(--transition-smooth);
 }
 
 .site-header.scrolled {
-  height: 68px;
-  background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .header-inner {
@@ -258,75 +252,122 @@ button {
   height: 100%;
 }
 
-.brand-logo {
+/* LOGOTIPO OFICIAL COM FIDELIDADE DE CORES */
+.brand-logo-badge {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px 16px 8px 16px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  display: inline-flex;
+}
+
+.brand-logo:hover .brand-logo-badge {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
+}
+
+.brand-logo-vector {
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.brand-logo-text {
+  position: relative;
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-carbon);
-  display: flex;
-  flex-direction: column;
   line-height: 1;
+  padding-bottom: 6px;
 }
 
-.brand-logo-sub {
-  font-size: 0.6rem;
-  font-weight: 400;
+.logo-txt-gray {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--logo-gray);
+  letter-spacing: -0.04em;
+}
+
+.logo-txt-green-oo {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  margin: 0 1px;
+}
+
+.o-ring {
+  width: 22px;
+  height: 22px;
+  border: 5px solid var(--logo-green);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.o-bridge {
+  width: 14px;
+  height: 5px;
+  background-color: var(--logo-green);
+  display: inline-block;
+  margin: 0 -4px;
+  z-index: 2;
+}
+
+.logo-sub-motors {
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  font-size: 0.58rem;
+  font-weight: 800;
   letter-spacing: 0.22em;
-  color: var(--color-carbon-subtle);
-  margin-top: 3px;
+  color: var(--logo-green);
+  font-family: var(--font-display);
 }
 
+/* Navegação Desktop */
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all var(--transition-smooth);
 }
 
-.mobile-nav-header {
-  display: none;
+.site-header.scrolled .main-nav {
+  background-color: transparent;
+  border-color: transparent;
+  padding: 0;
 }
 
 .nav-link {
-  font-size: 0.82rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-carbon-muted);
+  color: rgba(255, 255, 255, 0.92);
   position: relative;
-  padding: 6px 0;
+  padding: 6px 4px;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1.5px;
-  background-color: var(--color-carbon);
-  transition: width var(--transition-fast);
+.site-header.scrolled .nav-link {
+  color: var(--color-carbon-muted);
 }
 
 .nav-link:hover {
-  color: var(--color-carbon);
+  color: #ffffff;
 }
 
-.nav-link:hover::after {
-  width: 100%;
+.site-header.scrolled .nav-link:hover {
+  color: var(--color-carbon);
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .header-phone {
@@ -335,22 +376,40 @@ button {
   gap: 8px;
   font-size: 0.82rem;
   font-weight: 600;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.site-header.scrolled .header-phone {
   color: var(--color-carbon);
+  background-color: var(--color-fog);
+  border-color: var(--border-subtle);
 }
 
 .mobile-menu-toggle {
   display: none;
-  background: none;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   color: var(--color-carbon);
-  padding: 8px;
-  min-width: 44px;
-  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-nav-header {
+  display: none;
 }
 
 /* ==========================================================================
-   HERO SECTION (PURO LUXO AUTOMOTIVO - SEM POLUIÇÃO DE BOXES)
+   HERO SECTION (FOCO TOTAL NO VEÍCULO)
    ========================================================================== */
 .hero-section {
   position: relative;
@@ -376,7 +435,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.72) contrast(1.05);
+  filter: brightness(0.72) contrast(1.06);
 }
 
 .hero-overlay {
@@ -387,8 +446,8 @@ button {
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.45) 0%,
-    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
     rgba(0, 0, 0, 0.78) 100%
   );
   z-index: 2;
@@ -398,37 +457,20 @@ button {
   position: relative;
   z-index: 3;
   width: 100%;
-  padding-top: calc(var(--header-height) + 30px);
-  padding-bottom: 60px;
-}
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background-color: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+  padding-top: calc(var(--header-height) + 20px);
+  padding-bottom: 40px;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+  font-size: clamp(2.4rem, 6.5vw, 4.75rem);
   font-weight: 300;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   line-height: 1.1;
   max-width: 860px;
   margin-bottom: 1.25rem;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .hero-description {
@@ -436,9 +478,9 @@ button {
   font-weight: 300;
   line-height: 1.6;
   max-width: 600px;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.94);
   margin-bottom: 2.2rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }
 
 .hero-actions-wrap {
@@ -449,24 +491,18 @@ button {
 }
 
 .hero-btn {
-  padding: 16px 32px;
+  padding: 16px 34px;
 }
 
-/* Indicador de rolagem sutil */
 .hero-scroll-hint {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 48px;
-  color: rgba(255, 255, 255, 0.7);
+  margin-top: 40px;
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  transition: color var(--transition-fast);
-}
-
-.hero-scroll-hint:hover {
-  color: #ffffff;
 }
 
 .scroll-mouse {
@@ -515,66 +551,46 @@ button {
   justify-content: center;
 }
 
-.video-control-btn:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
 /* ==========================================================================
-   STATUS BAR (HORÁRIO DE ATENDIMENTO DINÂMICO)
+   STATUS PILL (INTEGRADO NO SHOWROOM)
    ========================================================================== */
-.status-bar {
-  background-color: var(--color-fog);
-  border-bottom: 1px solid var(--border-subtle);
-  padding: 14px 0;
-  font-size: 0.82rem;
-}
-
-.status-bar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.status-indicator {
-  display: flex;
+.showroom-status-pill {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-weight: 500;
+  padding: 6px 14px;
+  background-color: var(--color-fog);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-carbon);
+  margin-bottom: 8px;
 }
 
 .pulse-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--color-accent-whatsapp);
-  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  background-color: var(--logo-green);
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
   animation: pulse 2s infinite;
   flex-shrink: 0;
 }
 
 .pulse-dot.closed {
   background-color: #f59e0b;
-  box-shadow: none;
   animation: none;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-
-.status-address {
-  color: var(--color-carbon-muted);
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
 }
 
 /* ==========================================================================
-   SHOWROOM DE DESTAQUES (BMW STYLE EDITORIAL)
+   SHOWROOM & CARDS DE VEÍCULOS
    ========================================================================== */
 .featured-section {
   padding: 80px 0;
@@ -582,7 +598,7 @@ button {
 }
 
 .section-header {
-  margin-bottom: 40px;
+  margin-bottom: 36px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -596,11 +612,10 @@ button {
   gap: 28px;
 }
 
-/* Card de Veículo Estilo Galeria */
 .car-card {
   background-color: var(--color-pure-white);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -645,21 +660,20 @@ button {
   padding: 4px 10px;
   border-radius: var(--radius-sm);
   font-size: 0.68rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background-color: rgba(24, 24, 27, 0.85);
+  background-color: rgba(24, 24, 27, 0.88);
   color: #ffffff;
   backdrop-filter: blur(6px);
 }
 
 .car-badge-featured {
   background-color: var(--color-carbon);
-  color: #ffffff;
 }
 
 .car-badge-cautelar {
-  background-color: rgba(16, 185, 129, 0.92);
+  background-color: rgba(34, 197, 94, 0.94);
   color: #ffffff;
 }
 
@@ -695,10 +709,10 @@ button {
 
 .car-brand-name {
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-carbon-subtle);
+  color: var(--logo-green);
 }
 
 .car-title {
@@ -794,7 +808,7 @@ button {
   width: 42px;
   height: 42px;
   border-radius: var(--radius-sm);
-  background-color: var(--color-accent-whatsapp);
+  background-color: var(--logo-green);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -803,12 +817,12 @@ button {
 }
 
 .btn-card-whatsapp:hover {
-  background-color: var(--color-accent-whatsapp-dark);
+  background-color: var(--logo-green-hover);
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   ESTOQUE COMPLETO COM FILTROS AVANÇADOS
+   ESTOQUE COMPLETO COM FILTROS
    ========================================================================== */
 .catalog-section {
   padding: 80px 0;
@@ -820,8 +834,8 @@ button {
 .catalog-filter-bar {
   background-color: var(--color-pure-white);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
   margin-bottom: 28px;
   box-shadow: var(--shadow-subtle);
 }
@@ -843,26 +857,27 @@ button {
 }
 
 .filter-cat-btn {
-  padding: 10px 18px;
-  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
   font-size: 0.82rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.04em;
   white-space: nowrap;
   color: var(--color-carbon-muted);
-  border: 1px solid transparent;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--color-fog);
   min-height: 40px;
 }
 
 .filter-cat-btn:hover {
   color: var(--color-carbon);
-  background-color: var(--color-fog);
+  border-color: var(--color-carbon);
 }
 
 .filter-cat-btn.active {
   background-color: var(--color-carbon);
   color: var(--color-pure-white);
-  font-weight: 600;
+  border-color: var(--color-carbon);
 }
 
 .filter-subcontrols {
@@ -881,12 +896,11 @@ button {
 
 .search-input-wrap input {
   width: 100%;
-  height: 44px;
+  height: 46px;
   padding: 0 16px 0 40px;
   background-color: var(--color-fog);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  font-size: 0.88rem;
   outline: none;
   font-family: inherit;
   transition: all var(--transition-fast);
@@ -923,29 +937,21 @@ button {
 }
 
 .sort-select-wrap select {
-  height: 44px;
+  height: 46px;
   padding: 0 14px;
   background-color: var(--color-fog);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-family: inherit;
   outline: none;
 }
 
 .catalog-counter {
   font-size: 0.88rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-carbon-muted);
   margin-bottom: 24px;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: var(--color-pure-white);
-  border: 1px dashed var(--border-subtle);
-  border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================
@@ -965,7 +971,7 @@ button {
 .interactive-box {
   background-color: var(--color-fog);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -1009,13 +1015,12 @@ button {
 .form-group input,
 .form-group select,
 .form-group textarea {
-  height: 48px;
+  height: 50px;
   padding: 0 14px;
   background-color: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   font-family: inherit;
-  font-size: 0.88rem;
   outline: none;
   transition: border-color var(--transition-fast);
 }
@@ -1030,21 +1035,22 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 6px 0;
+  padding: 8px 0;
 }
 
 .range-wrap input[type="range"] {
   flex: 1;
-  accent-color: var(--color-carbon);
+  accent-color: var(--logo-green);
   height: 8px;
 }
 
 .range-val {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.05rem;
-  min-width: 100px;
+  min-width: 110px;
   text-align: right;
+  color: var(--logo-green);
 }
 
 .calc-results-box {
@@ -1067,13 +1073,13 @@ button {
   font-size: 0.7rem;
   color: var(--color-carbon-subtle);
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .calc-plan-val {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 800;
+  font-size: 1.05rem;
   color: var(--color-carbon);
   margin-top: 2px;
 }
@@ -1096,7 +1102,7 @@ button {
 .diff-card {
   padding: 28px 22px;
   background-color: var(--color-fog);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
   transition: all var(--transition-smooth);
 }
@@ -1113,7 +1119,7 @@ button {
   height: 48px;
   border-radius: var(--radius-sm);
   background-color: var(--color-carbon);
-  color: #ffffff;
+  color: var(--logo-green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1152,7 +1158,7 @@ button {
 .location-card {
   background-color: var(--color-pure-white);
   padding: 36px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
@@ -1176,12 +1182,12 @@ button {
 }
 
 .location-hours-item.today {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-carbon);
 }
 
 .location-map-wrap {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   min-height: 400px;
@@ -1196,7 +1202,7 @@ button {
 }
 
 /* ==========================================================================
-   FOOTER CARBON (ESTILO BMW.COM)
+   FOOTER CARBON
    ========================================================================== */
 .site-footer {
   background-color: var(--color-carbon);
@@ -1260,7 +1266,7 @@ button {
 }
 
 /* ==========================================================================
-   MODAL DE DETALHES DO VEÍCULO (COM SUPORTE MOBILE FULLSCREEN)
+   MODAL DE DETALHES DO VEÍCULO (BOTTOM SHEET NO MOBILE)
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
@@ -1288,7 +1294,7 @@ button {
 
 .modal-dialog {
   background-color: var(--color-pure-white);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   width: 100%;
   max-width: 960px;
   max-height: 90vh;
@@ -1312,7 +1318,6 @@ button {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--border-subtle);
   color: var(--color-carbon);
   display: flex;
@@ -1366,7 +1371,7 @@ button {
 
 .modal-thumb.active,
 .modal-thumb:hover {
-  border-color: var(--color-carbon);
+  border-color: var(--logo-green);
   opacity: 1;
 }
 
@@ -1442,6 +1447,72 @@ button {
 }
 
 /* ==========================================================================
+   BOTÃO FLUTUANTE DE WHATSAPP (DESKTOP & MOBILE)
+   ========================================================================== */
+.floating-whatsapp-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1500;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 10px;
+  background-color: var(--color-accent-whatsapp);
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: all var(--transition-smooth);
+}
+
+.floating-whatsapp-btn:hover {
+  background-color: var(--color-accent-whatsapp-dark);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.55);
+  color: #ffffff;
+}
+
+.floating-whatsapp-icon {
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  color: var(--color-accent-whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.floating-whatsapp-label {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.floating-whatsapp-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-whatsapp);
+  opacity: 0.4;
+  z-index: -1;
+  animation: pulse-ring 2.5s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  50% { transform: scale(1.18); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+/* ==========================================================================
    OTIMIZAÇÃO RESPONSIVA AVANÇADA (MOBILE & TABLET)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1460,10 +1531,44 @@ button {
 
 @media (max-width: 768px) {
   :root {
-    --header-height: 64px;
+    --header-height: 72px;
   }
 
-  /* Header e Menu Mobile Full-Screen Drawer */
+  /* Header Transparente com Logo Flutuando no Canto Superior Esquerdo da Hero */
+  .site-header {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+  }
+
+  .brand-logo-badge {
+    padding: 5px 12px 6px 12px;
+  }
+
+  .logo-txt-gray {
+    font-size: 1.4rem;
+  }
+
+  .o-ring {
+    width: 18px;
+    height: 18px;
+    border-width: 4px;
+  }
+
+  .o-bridge {
+    width: 10px;
+    height: 4px;
+    margin: 0 -3px;
+  }
+
+  .logo-sub-motors {
+    font-size: 0.52rem;
+  }
+
   .header-phone {
     display: none;
   }
@@ -1472,6 +1577,7 @@ button {
     display: flex;
   }
 
+  /* Drawer Mobile em Tela Cheia */
   .main-nav {
     display: none;
     position: fixed;
@@ -1483,8 +1589,10 @@ button {
     z-index: 2000;
     flex-direction: column;
     align-items: flex-start;
-    padding: 24px;
+    padding: 24px 20px;
     gap: 0;
+    border-radius: 0;
+    border: none;
     overflow-y: auto;
   }
 
@@ -1497,8 +1605,8 @@ button {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 18px;
+    margin-bottom: 16px;
     border-bottom: 1px solid var(--border-subtle);
   }
 
@@ -1509,6 +1617,8 @@ button {
     align-items: center;
     justify-content: center;
     color: var(--color-carbon);
+    border-radius: 50%;
+    background-color: var(--color-fog);
   }
 
   .nav-link {
@@ -1516,31 +1626,29 @@ button {
     padding: 16px 0;
     font-size: 1.15rem;
     font-weight: 600;
+    color: var(--color-carbon) !important;
     border-bottom: 1px solid var(--border-subtle);
   }
 
-  .nav-link::after {
-    display: none;
-  }
-
-  /* Hero no Mobile */
+  /* Hero Section no Mobile */
   .hero-section {
     min-height: 100svh;
     height: 100svh;
   }
 
   .hero-content {
-    padding-top: calc(var(--header-height) + 16px);
-    padding-bottom: 40px;
+    padding-top: calc(var(--header-height) + 12px);
+    padding-bottom: 32px;
   }
 
   .hero-title {
-    font-size: 2.35rem;
+    font-size: 2.25rem;
     line-height: 1.12;
+    margin-bottom: 1rem;
   }
 
   .hero-description {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 1.8rem;
   }
@@ -1564,27 +1672,20 @@ button {
     right: 16px;
   }
 
-  /* Status Bar */
-  .status-bar-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  /* Seções */
+  /* Seções no Mobile */
   .featured-section,
   .catalog-section,
   .trade-finance-section,
   .differentials-section,
   .location-section {
-    padding: 56px 0;
+    padding: 52px 0;
   }
 
   .section-header {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
-  /* Grids Mobile */
+  /* Grids Mobile: 1 coluna limpa */
   .featured-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -1625,7 +1726,7 @@ button {
     flex: 1;
   }
 
-  /* Modal no Mobile (Estilo Bottom Sheet / Full) */
+  /* Modal no Mobile: Bottom Sheet */
   .modal-backdrop {
     padding: 0;
     align-items: flex-end;
@@ -1633,7 +1734,7 @@ button {
 
   .modal-dialog {
     max-height: 94vh;
-    border-radius: 16px 16px 0 0;
+    border-radius: 20px 20px 0 0;
   }
 
   .modal-body-content {
@@ -1649,105 +1750,21 @@ button {
   }
 
   .location-card {
-    padding: 24px;
+    padding: 22px;
   }
 
   .location-map-wrap,
   .location-map-wrap iframe {
-    min-height: 280px;
+    min-height: 260px;
   }
-}
 
-
-/* ==========================================================================
-   BOTÃO FLUTUANTE DE WHATSAPP (DESKTOP & MOBILE)
-   ========================================================================== */
-.floating-whatsapp-btn {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 1500;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 18px 8px 10px;
-  background-color: var(--color-accent-whatsapp);
-  color: #ffffff;
-  border-radius: var(--radius-full);
-  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.42), 0 2px 8px rgba(0, 0, 0, 0.12);
-  transition: all var(--transition-smooth);
-  text-decoration: none;
-}
-
-.floating-whatsapp-btn:hover {
-  background-color: var(--color-accent-whatsapp-dark);
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.52), 0 4px 12px rgba(0, 0, 0, 0.16);
-  color: #ffffff;
-}
-
-.floating-whatsapp-icon {
-  width: 44px;
-  height: 44px;
-  background-color: #ffffff;
-  color: var(--color-accent-whatsapp);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform var(--transition-fast);
-}
-
-.floating-whatsapp-btn:hover .floating-whatsapp-icon {
-  transform: rotate(12deg);
-}
-
-.floating-whatsapp-label {
-  font-family: var(--font-display);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  color: #ffffff;
-}
-
-.floating-whatsapp-pulse {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--radius-full);
-  background-color: var(--color-accent-whatsapp);
-  opacity: 0.4;
-  z-index: -1;
-  animation: pulse-ring 2.5s infinite;
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.95);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.15);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-}
-
-/* Mobile: Botão Redondo e Touch-friendly */
-@media (max-width: 768px) {
+  /* Botão Flutuante Circular Touch no Mobile */
   .floating-whatsapp-btn {
     bottom: 20px;
-    right: 20px;
+    right: 18px;
     padding: 0;
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
     justify-content: center;
   }

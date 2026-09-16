@@ -28,11 +28,13 @@
        ======================================================================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="brand-logo">
-        <div class="brand-logo-text">
-          <span>BROOK</span>
-          <span style="font-weight: 300; letter-spacing: 0.22em;">MOTORS</span>
-          <span class="brand-logo-sub">SANTA BÁRBARA D'OESTE</span>
+      <a href="#" class="brand-logo" aria-label="Brook Motors Showroom">
+        <div class="brand-logo-badge">
+          <!-- Logo Oficial Brook Motors com Fidelidade de Cores -->
+          <div class="brand-logo-vector">
+            <span class="logo-txt-gray">br</span><span class="logo-txt-green-oo"><span class="o-ring"></span><span class="o-bridge"></span><span class="o-ring"></span></span><span class="logo-txt-gray">k</span>
+            <span class="logo-sub-motors">MOTORS</span>
+          </div>
         </div>
       </a>
 
@@ -86,11 +88,6 @@
     <div class="hero-overlay"></div>
 
     <div class="container hero-content">
-      <span class="hero-tag">
-        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Showroom Selecionado · Santa Bárbara d'Oeste
-      </span>
-
       <h1 class="hero-title">
         Excelência em<br />Cada Detalhe
       </h1>
@@ -130,30 +127,17 @@
   </section>
 
   <!-- ========================================================================
-       BARRA DE STATUS EM TEMPO REAL (HORÁRIO DA LOJA FÍSICA)
-       ======================================================================== -->
-  <aside class="status-bar">
-    <div class="container status-bar-inner">
-      <div id="storeStatus" class="status-indicator">
-        <span class="pulse-dot"></span>
-        <span>Carregando status do showroom...</span>
-      </div>
-
-      <div class="status-address">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>Av. Pref. José Maria de Araújo Júnior, 805 — Santa Bárbara d'Oeste - SP</span>
-      </div>
-    </div>
-  </aside>
-
-  <!-- ========================================================================
        DESTAQUES DO SHOWROOM (CURADORIA EXCLUSIVA)
        ======================================================================== -->
   <section id="destaques" class="featured-section">
     <div class="container">
       <div class="section-header">
         <div>
-          <span class="eyebrow">Curadoria Brook Motors</span>
+          <div class="showroom-status-pill" id="storeStatus">
+            <span class="pulse-dot"></span>
+            <span>Showroom Aberto</span>
+          </div>
+          <span class="eyebrow" style="margin-top: 10px;">Curadoria Brook Motors</span>
           <h2 class="heading-section">Destaques do Showroom</h2>
           <p class="section-desc">Uma seleção de ícones do mercado automotivo. Performance, conforto executivo e colecionáveis com histórico impecável.</p>
         </div>
